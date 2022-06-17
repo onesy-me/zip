@@ -1,6 +1,6 @@
 {
   "name": "@amaui/zip",
-  "version": "1.0.111",
+  "version": "1.0.1111",
   "description": "Zip / Unzip",
   "repository": "https://github.com/amaui-org/amaui-zip.git",
   "author": "Lazar <lazareric.com@gmail.com>",
@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "@amaui/models": "^1.0.1",
-    "@amaui/test": "^1.0.147",
+    "@amaui/test": "^1.0.1114",
     "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.0",
     "@babel/plugin-transform-runtime": "^7.16.4",

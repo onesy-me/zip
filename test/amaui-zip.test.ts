@@ -527,8 +527,10 @@ group('@amaui/zip', () => {
 
           return amauiZips;
         }, { browsers });
+
         const valueNode = amauiZips;
-        const values = [valueNode.slice(0, 12), ...valueBrowsers];
+
+        const values = [...valueBrowsers];
 
         values.forEach(value => assert(value).eql([
           {
@@ -572,11 +574,11 @@ group('@amaui/zip', () => {
             positive: false
           },
           {
-            value: '1;00 de 2 "n 2  u 1 fi,   AADJtHvqBA==',
-            original_byte_size: 11,
-            value_byte_size: 38,
-            compression_ratio: 0.29,
-            compression_percentage: -245.45,
+            value: '1;1 ,   AAIA',
+            original_byte_size: 0,
+            value_byte_size: 12,
+            compression_ratio: 0,
+            compression_percentage: -1200,
             positive: false
           },
           {
@@ -629,14 +631,112 @@ group('@amaui/zip', () => {
           }
         ]));
 
-        assert(valueNode[12]).eql({
-          value: '1a 1 1 ,   E7AAAA==',
-          original_byte_size: 3,
-          value_byte_size: 19,
-          compression_ratio: 0.16,
-          compression_percentage: -533.33,
-          positive: false
-        });
+        assert(valueNode).eql([
+          {
+            "value": "1 ,   AAIA",
+            "original_byte_size": 0,
+            "value_byte_size": 10,
+            "compression_ratio": 0,
+            "compression_percentage": -1000,
+            "positive": false
+          },
+          {
+            "value": "1;14 ,   AAIC",
+            "original_byte_size": 1,
+            "value_byte_size": 13,
+            "compression_ratio": 0.08,
+            "compression_percentage": -1200,
+            "positive": false
+          },
+          {
+            "value": "1;00 \" 1 4  2 {a 1 :},   AAJwplM=",
+            "original_byte_size": 7,
+            "value_byte_size": 33,
+            "compression_ratio": 0.21,
+            "compression_percentage": -371.43,
+            "positive": false
+          },
+          {
+            "value": "1;00 4, 2 1  1 [],   AAC4Ygc=",
+            "original_byte_size": 7,
+            "value_byte_size": 29,
+            "compression_ratio": 0.24,
+            "compression_percentage": -314.29,
+            "positive": false
+          },
+          {
+            "value": "1;00 ru 1 e 1  t,   AADcBg==",
+            "original_byte_size": 4,
+            "value_byte_size": 28,
+            "compression_ratio": 0.14,
+            "compression_percentage": -600,
+            "positive": false
+          },
+          {
+            "value": "1;00 de 2 \"n 2  u 1 fi,   AADJtHvqBA==",
+            "original_byte_size": 11,
+            "value_byte_size": 38,
+            "compression_ratio": 0.29,
+            "compression_percentage": -245.45,
+            "positive": false
+          },
+          {
+            "value": "1 ,   EgAA",
+            "original_byte_size": 1,
+            "value_byte_size": 10,
+            "compression_ratio": 0.1,
+            "compression_percentage": -900,
+            "positive": false
+          },
+          {
+            "value": "1 ,   EwAAAA==",
+            "original_byte_size": 2,
+            "value_byte_size": 14,
+            "compression_ratio": 0.14,
+            "compression_percentage": -600,
+            "positive": false
+          },
+          {
+            "value": "1 a,   EgAB",
+            "original_byte_size": 1,
+            "value_byte_size": 11,
+            "compression_ratio": 0.09,
+            "compression_percentage": -1000,
+            "positive": false
+          },
+          {
+            "value": "0000 si 2 l 1 p 1 bq 1 o 1 ` 2 8j 1 1h 1   1 t 1 m 1 . 1 g 2 LF 1 SP 2 e 1 rn 2 u 1 d, 1 a 1 c 2 f 1 IC 2 vD 2 24 1 69,   AAJPw1RyxCUABjloxDUgFlzo2141hPNGyl2hKEPDb5Qgs8n7gehx8+2eHR2187wkEBBBNKVzHfz+78cUf9UauRYnXoWXY+yPJ/TSHSKJ3pXMvkIACG07iQADO1yrGrHKxAAI8vq1hGofQEE0ndlCAAvg2JbATjj492eHPL7JwAALimlsm7wsKAAN4TAXxdpEFjVyY1F8lsipS8a8LDyswNXbRUpDfoUxgR+LpfQwPL6to+lL2UGBtG0ACZDpVjVjkWJ16Ftq4XyL8hBZcQAEvnORtCba5lR+a/YAAoQWUBlc8pXM8n/RhtR9AAG4AA7/fNnh0ILbO/57ssc4xIDDFYgACgAI4qUuZ5fdcCG2laxydwAAcrnk44+mzwAOrGrHPL9wQXjOcbRl+S5fMII9wGNtd5FGpuTQhMBFQhJbQC+RAATTy/TXPKMrEBXY7AAHAg==",
+            "original_byte_size": 593,
+            "value_byte_size": 574,
+            "compression_ratio": 1.03,
+            "compression_percentage": 3.2,
+            "positive": true
+          },
+          {
+            "value": "000   1 is 2 a, 1 t 1 m 1 1 2 kx 1 h 1 3N 4 u 1 o 1 p8 1 e 1 c 1 v 4 PI 1 SM 2 DA 1 w 1 VE 4 ln 1 r 1 . 1 qb 1 ` 4 9 2 45 1 j\n 1 g 1 f 1 02 1 d 1 7 1 6 2 CQ 1 y 1 F 1 z 1 LU,   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",
+            "original_byte_size": 2941,
+            "value_byte_size": 2381,
+            "compression_ratio": 1.24,
+            "compression_percentage": 19.04,
+            "positive": true
+          },
+          {
+            "value": "1a 1 2 ,   E7AAAA==",
+            "original_byte_size": 3,
+            "value_byte_size": 19,
+            "compression_ratio": 0.16,
+            "compression_percentage": -533.33,
+            "positive": false
+          },
+          {
+            "value": "1a 1 1 ,   E7AAAA==",
+            "original_byte_size": 3,
+            "value_byte_size": 19,
+            "compression_ratio": 0.16,
+            "compression_percentage": -533.33,
+            "positive": false
+          }
+        ]);
       });
 
       to('decode', async () => {
