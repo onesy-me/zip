@@ -673,11 +673,11 @@ group('@amaui/zip', () => {
             "positive": false
           },
           {
-            "value": "1;00 de 2 \"n 2  u 1 fi,   AADJtHvqBA==",
-            "original_byte_size": 11,
-            "value_byte_size": 38,
-            "compression_ratio": 0.29,
-            "compression_percentage": -245.45,
+            "value": "1;1 ,   AAIA",
+            "original_byte_size": 0,
+            "value_byte_size": 12,
+            "compression_ratio": 0,
+            "compression_percentage": -1200,
             "positive": false
           },
           {
