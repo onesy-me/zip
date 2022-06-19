@@ -3,18 +3,11 @@ import { assert } from '@amaui/test';
 
 import * as AmauiUtils from '@amaui/utils';
 
-import { startBrowsers, IBrowsers, evaluate, closeBrowsers } from '../utils/js/test/utils';
+import { evaluate } from '../utils/js/test/utils';
 
 import AmauiZip from '../src';
 
 group('@amaui/zip', () => {
-  let browsers: IBrowsers;
-
-  pre(async () => browsers = await startBrowsers());
-
-  post(async () => {
-    await closeBrowsers(browsers);
-  });
 
   to('AmauiZipResponse', async () => {
     const value = new AmauiZip.AmauiZipResponse(
@@ -41,7 +34,7 @@ group('@amaui/zip', () => {
       );
 
       return value;
-    }, { browsers });
+    });
     const valueNode = value;
     const values = [valueNode, ...valueBrowsers];
 
@@ -66,7 +59,7 @@ group('@amaui/zip', () => {
           return [
             new window.AmauiZip.AmauiZipResponse() instanceof window.AmauiZip.AmauiZipResponse,
           ];
-        }, { browsers });
+        });
         const valueNode = [
           new AmauiZip.AmauiZipResponse() instanceof AmauiZip.AmauiZipResponse,
         ];
@@ -99,7 +92,7 @@ group('@amaui/zip', () => {
             [uint8Array instanceof Uint8Array, [...uint8Array]],
             [buffer instanceof Uint8Array, [...buffer]],
           ];
-        }, { browsers });
+        });
         const valueNode = [
           AmauiZip.decode('1 ,   AAIA').value,
           AmauiZip.decode('1;14 ,   AAIC').value,
@@ -166,7 +159,7 @@ group('@amaui/zip', () => {
 
               return item;
             });
-        }, { browsers });
+        });
         const valueNode = [
           new AmauiZip('').response,
           new AmauiZip(4).response,
@@ -318,7 +311,7 @@ group('@amaui/zip', () => {
 
               return item;
             });
-        }, { browsers });
+        });
         const valueNode = [
           new AmauiZip('').encoded,
           new AmauiZip(4).encoded,
@@ -526,7 +519,7 @@ group('@amaui/zip', () => {
             });
 
           return amauiZips;
-        }, { browsers });
+        });
 
         const valueNode = amauiZips;
 
@@ -763,7 +756,7 @@ group('@amaui/zip', () => {
           ];
 
           return values_;
-        }, { browsers });
+        });
         const values_ = [
           new AmauiZip().decode('1 ,   AAIA').value,
           new AmauiZip().decode('1;14 ,   AAIC').value,
