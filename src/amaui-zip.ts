@@ -1,5 +1,9 @@
-import { is, to, parse, serialize } from '@amaui/utils';
-import { AmauiDate, duration } from '@amaui/date';
+import is from '@amaui/utils/is';
+import to from '@amaui/utils/to';
+import parse from '@amaui/utils/parse';
+import serialize from '@amaui/utils/serialize';
+import AmauiDate from '@amaui/date/amaui-date';
+import duration from '@amaui/date/duration';
 import AmauiHuffmanCode from '@amaui/huffman-code';
 import AmauiLZ77 from '@amaui/lz77';
 

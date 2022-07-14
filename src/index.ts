@@ -1,3 +1,1 @@
-import { default as AmauiZip } from './amaui-zip';
-
-export default AmauiZip;
+export { default } from './amaui-zip';
