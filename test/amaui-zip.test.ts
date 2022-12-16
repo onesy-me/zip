@@ -45,8 +45,8 @@ group('@amaui/zip', () => {
       compression_ratio: 1.14,
       compression_percentage: 14.4,
       positive: true,
-      encode_execution_milliseconds: 1.04,
-      encode_execution: '1 milliseconds',
+      performance_milliseconds: 1.04,
+      performance: '1 milliseconds',
     }));
   });
 
@@ -153,8 +153,8 @@ group('@amaui/zip', () => {
           ]
             .map(item => {
               if (item) {
-                delete item.encode_execution;
-                delete item.encode_execution_milliseconds;
+                delete item.performance;
+                delete item.performance_milliseconds;
               }
 
               return item;
@@ -177,8 +177,8 @@ group('@amaui/zip', () => {
         ]
           .map(item => {
             if (item) {
-              delete item.encode_execution;
-              delete item.encode_execution_milliseconds;
+              delete item.performance;
+              delete item.performance_milliseconds;
             }
 
             return item;
@@ -305,8 +305,8 @@ group('@amaui/zip', () => {
           ]
             .map(item => {
               if (item) {
-                delete item.encode_execution;
-                delete item.encode_execution_milliseconds;
+                delete item.performance;
+                delete item.performance_milliseconds;
               }
 
               return item;
@@ -329,8 +329,8 @@ group('@amaui/zip', () => {
         ]
           .map(item => {
             if (item) {
-              delete item.encode_execution;
-              delete item.encode_execution_milliseconds;
+              delete item.performance;
+              delete item.performance_milliseconds;
             }
 
             return item;
@@ -472,8 +472,8 @@ group('@amaui/zip', () => {
           })
           .map(item => {
             if (item) {
-              delete item.encode_execution;
-              delete item.encode_execution_milliseconds;
+              delete item.performance;
+              delete item.performance_milliseconds;
             }
 
             return item;
@@ -511,8 +511,8 @@ group('@amaui/zip', () => {
             })
             .map(item => {
               if (item) {
-                delete item.encode_execution;
-                delete item.encode_execution_milliseconds;
+                delete item.performance;
+                delete item.performance_milliseconds;
               }
 
               return item;
