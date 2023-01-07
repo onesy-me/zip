@@ -801,4 +801,28 @@ group('@amaui/zip', () => {
 
   });
 
+  group('Use cases', () => {
+
+    to('Japanese characters, UTF-16', async () => {
+      const valueBrowsers = await evaluate((window: any) => {
+        const values_ = [
+          window.AmauiZip.decode(new window.AmauiZip({ "id": "a", "name": "アマウイ大好き" }).response.value).value
+        ];
+
+        return values_;
+      });
+      const values_ = [
+        AmauiZip.decode(new AmauiZip({ "id": "a", "name": "アマウイ大好き" }).response.value).value
+      ];
+
+      const valueNode = values_;
+      const values = [valueNode, ...valueBrowsers];
+
+      values.forEach(value => assert(value).eql([
+        { id: 'a', name: 'アマウイ大好き' }
+      ]));
+    });
+
+  });
+
 });
