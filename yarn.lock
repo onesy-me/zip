@@ -66,10 +66,10 @@
     "@amaui/utils" "^1.0.1874"
     "@babel/runtime" "^7.18.3"
 
-"@amaui/huffman-code@^1.0.11147":
-  version "1.0.11147"
-  resolved "https://registry.yarnpkg.com/@amaui/huffman-code/-/huffman-code-1.0.11147.tgz#45f1600b8f0a15c3502ba193841970cf504b1014"
-  integrity sha512-VLgfynGHpuKfaQ+8AuODlGitWLuY4pk/1a90g+JPXWNSRWPSW1fkkNk1Ot8QEw4pbsHDBeiR3EG92j79SFKB4g==
+"@amaui/huffman-code@^1.0.11150":
+  version "1.0.11150"
+  resolved "https://registry.yarnpkg.com/@amaui/huffman-code/-/huffman-code-1.0.11150.tgz#5225c25c9d3d2387a2a4fb4f00bcad3d5a88a627"
+  integrity sha512-N6AoUv3sAgDET/qtiGYuQwCEejdf6NXbr1G03GZnJfYJJDE89Rw/Q839Uz30NMQ0RYO7MaXkYHK5J6VUHzpIEg==
   dependencies:
     "@amaui/date" "^1.0.11433"
     "@amaui/utils" "^1.0.11445"
