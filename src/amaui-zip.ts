@@ -25,10 +25,12 @@ class AmauiZipResponse {
 
 export interface IOptions {
   encode_values?: boolean;
+  huffman_code?: 'auto' | boolean;
 }
 
 const optionsDefault: IOptions = {
-  encode_values: true
+  encode_values: true,
+  huffman_code: 'auto'
 };
 
 class AmauiZip {
@@ -71,11 +73,26 @@ class AmauiZip {
 
     const lz77 = new AmauiLZ77(this.value);
 
-    const huffmanCode = new AmauiHuffmanCode(lz77.response.value, { encode_values: this.options?.encode_values });
+    let value = lz77.response.value;
 
-    let value = `${huffmanCode.response.values_encoded},   ${huffmanCode.response.value}`;
+    const options = [this.serialized ? 1 : 0];
 
-    if (this.serialized) value = `1;${value}`;
+    if (['auto', true].includes(this.options.huffman_code)) {
+      const huffmanCode = new AmauiHuffmanCode(lz77.response.value, { encode_values: this.options?.encode_values });
+
+      if (
+        huffmanCode.response.positive ||
+        this.options.huffman_code === true
+      ) {
+        value = `${huffmanCode.response.values_encoded},   ${huffmanCode.response.value}`;
+
+        options.unshift(1);
+      }
+      else options.unshift(0);
+    }
+    else options.unshift(0);
+
+    value = `${options.join('')}${value}`;
 
     const response: AmauiZipResponse = new AmauiZipResponse(value);
 
@@ -98,38 +115,38 @@ class AmauiZip {
     const startTime = AmauiDate.milliseconds;
 
     if (is('string', value_)) {
-      let meta = '';
-      let value: any = value_;
+      const huffmanCode = value_[0] === '1';
+      const serialized = value_[1] === '1';
 
-      if (['1'].some(item => value_[0] === item) && value_[1] === ';') {
-        meta = value_.slice(0, 2);
-
-        value = value_.slice(2);
-      }
-
-      const serialized = meta[0] === '1';
+      let value = value_.slice(2);
 
       const separator = value.indexOf(',   ');
 
-      let huffmanValues = value.substring(0, separator);
-      const huffmanValue = value.substring(separator + 4);
+      // Huffman code
+      if (huffmanCode) {
+        let huffmanValues: any = value.substring(0, separator);
+        const huffmanValue = value.substring(separator + 4);
 
-      if (huffmanValue && huffmanValues) {
-        huffmanValues = AmauiHuffmanCode.decodeValues(huffmanValues);
+        if (huffmanValue && huffmanValues) {
+          huffmanValues = AmauiHuffmanCode.decodeValues(huffmanValues);
 
-        const huffman = AmauiHuffmanCode.decode(huffmanValue, huffmanValues);
+          const huffman = AmauiHuffmanCode.decode(huffmanValue, huffmanValues);
 
-        const lz77 = AmauiLZ77.decode(huffman.value);
-
-        response.value = lz77.value;
-
-        if (serialized) response.value = parse(response.value);
-
-        response.performance_milliseconds = AmauiDate.milliseconds - startTime;
-        response.performance = duration(response.performance_milliseconds) || '0 milliseconds';
-        response.original_byte_size = to(response.value, 'byte-size') as number;
-        response.value_byte_size = to(value_, 'byte-size') as number;
+          value = huffman.value;
+        }
       }
+
+      // lz77
+      const lz77 = AmauiLZ77.decode(value);
+
+      response.value = lz77.value;
+
+      if (serialized) response.value = parse(response.value);
+
+      response.performance_milliseconds = AmauiDate.milliseconds - startTime;
+      response.performance = duration(response.performance_milliseconds) || '0 milliseconds';
+      response.original_byte_size = to(response.value, 'byte-size') as number;
+      response.value_byte_size = to(value_, 'byte-size') as number;
     }
 
     return response;
