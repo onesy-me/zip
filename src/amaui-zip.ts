@@ -6,6 +6,7 @@ import AmauiDate from '@amaui/date/amaui-date';
 import duration from '@amaui/date/duration';
 import AmauiHuffmanCode from '@amaui/huffman-code';
 import AmauiLZ77 from '@amaui/lz77';
+import { merge } from '@amaui/utils';
 
 class AmauiZipResponse {
 
@@ -22,7 +23,16 @@ class AmauiZipResponse {
 
 }
 
+export interface IOptions {
+  encode_values?: boolean;
+}
+
+const optionsDefault: IOptions = {
+  encode_values: true
+};
+
 class AmauiZip {
+  public options: IOptions = {};
   public serialized = false;
   public response: AmauiZipResponse;
 
@@ -37,8 +47,11 @@ class AmauiZip {
   }
 
   public constructor(
-    public value?: any
+    public value?: any,
+    options: IOptions = optionsDefault
   ) {
+    this.options = merge(options, optionsDefault);
+
     if (value !== undefined) this.init();
   }
 
@@ -58,7 +71,7 @@ class AmauiZip {
 
     const lz77 = new AmauiLZ77(this.value);
 
-    const huffmanCode = new AmauiHuffmanCode(lz77.response.value);
+    const huffmanCode = new AmauiHuffmanCode(lz77.response.value, { encode_values: this.options?.encode_values });
 
     let value = `${huffmanCode.response.values_encoded},   ${huffmanCode.response.value}`;
 
