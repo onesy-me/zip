@@ -3,7 +3,6 @@ const childProcess = require('child_process');
 const yargs = require('yargs');
 const fse = require('fs-extra');
 const fg = require('fast-glob');
-const fg = require('fast-glob');
 
 const { promisify } = require('@amaui/utils');
 
