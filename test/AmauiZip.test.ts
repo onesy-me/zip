@@ -5,7 +5,7 @@ import { evaluate } from '../utils/js/test/utils';
 
 import AmauiZip from '../src';
 
-group('@amaui/zip', () => {
+group('AmauiZip', () => {
 
   to('AmauiZipResponse', async () => {
     const value = new AmauiZip.AmauiZipResponse(
