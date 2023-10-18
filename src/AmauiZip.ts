@@ -2,11 +2,11 @@ import is from '@amaui/utils/is';
 import to from '@amaui/utils/to';
 import parse from '@amaui/utils/parse';
 import serialize from '@amaui/utils/serialize';
-import AmauiDate from '@amaui/date/amaui-date';
+import AmauiDate from '@amaui/date/AmauiDate';
 import duration from '@amaui/date/duration';
 import AmauiHuffmanCode from '@amaui/huffman-code';
 import AmauiLZ77 from '@amaui/lz77';
-import { merge } from '@amaui/utils';
+import merge from '@amaui/utils/merge';
 
 class AmauiZipResponse {
 
@@ -58,7 +58,7 @@ class AmauiZip {
   }
 
   private init(): void {
-    if (!['uint8array', 'buffer', 'string'].some(item => is(item, this.value))) {
+    if (!['uint8array', 'buffer', 'string'].some((item: any) => is(item, this.value))) {
       this.value = serialize(this.value);
 
       this.serialized = true;
