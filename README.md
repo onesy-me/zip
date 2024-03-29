@@ -1,6 +1,6 @@
 
-</br >
-</br >
+</br>
+</br>
 
 <p align='center'>
   <a target='_blank' rel='noopener noreferrer' href='#'>
@@ -39,7 +39,7 @@
 ### Add
 
 ```sh
-  yarn add @amaui/zip
+yarn add @amaui/zip
 ```
 
 ### Use
@@ -96,13 +96,13 @@ Integer ut ipsum eu tortor mollis accumsan nec vitae ex. Proin convallis, eros e
 Install
 
 ```sh
-  yarn
+yarn
 ```
 
 Test
 
 ```sh
-  yarn test
+yarn test
 ```
 
 ### Prod
@@ -110,5 +110,5 @@ Test
 Build
 
 ```sh
-  yarn build
+yarn build
 ```
