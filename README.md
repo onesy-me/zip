@@ -46,7 +46,7 @@ yarn add @amaui/zip
 
 More redundant and bigger in size input is, better compression will be.
 
-For small and low redundant input, you will probably get negative compression (zipped value is larger in size, than the original input), which you can check in `response.positive` value. <br ><br >
+For small and low redundant input, you will probably get negative compression (zipped value is larger in size, than the original input), which you can check in `response.positive` value. <br><br>
 
 ```javascript
   import AmauiZip from '@amaui/zip';
