@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn add @amaui/huffman-code @amaui/lz77 @amaui/dat @amaui/utils
+  /usr/local/bin/node /usr/local/bin/yarn add @onesy/huffman-code @onesy/lz77 @onesy/dat @onesy/utils
 
 PATH: 
   /Library/Frameworks/Python.framework/Versions/3.11/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Library/Frameworks/Python.framework/Versions/3.11/bin
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.npmjs.org/@amaui%2fdat: Not found
+  Error: https://registry.npmjs.org/@onesy%2fdat: Not found
       at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:67029:18)
       at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140883:22)
       at Request.emit (node:events:513:28)
@@ -28,10 +28,10 @@ Trace:
 
 npm manifest: 
   {
-    "name": "@amaui/zip",
+    "name": "@onesy/zip",
     "version": "1.0.3",
     "description": "Zip / Unzip",
-    "repository": "https://github.com/amaui-org/amaui-zip.git",
+    "repository": "https://github.com/onesy-org/onesy-zip.git",
     "author": "Lazar <lazareric.com@gmail.com>",
     "license": "MIT",
     "private": false,
@@ -60,7 +60,7 @@ npm manifest:
       "node",
       "nodejs",
       "library",
-      "amaui",
+      "onesy",
       "utils"
     ],
     "scripts": {
@@ -69,21 +69,21 @@ npm manifest:
       "release": "yarn build && yarn version --patch --no-git-tag-version && yarn build && cd ./build && npm publish",
       "lint": "tslint -c tslint.json -p tsconfig.json",
       "type": "tsc --noEmit -p tsconfig.json",
-      "cov": "cross-env NODE_ENV=test amaui-test",
+      "cov": "cross-env NODE_ENV=test onesy-test",
       "test:pre": "pm2 update && pm2 delete all && pm2 start utils/js/test/app.js && wait-on http://localhost:4000",
       "test:post": "pm2 delete all",
       "test": "yarn lint && yarn type && yarn build && yarn test:pre && yarn cov && yarn test:post"
     },
     "dependencies": {
-      "@amaui/date": "^1.1.3",
-      "@amaui/huffman-code": "^1.0.11154",
-      "@amaui/lz77": "^1.0.11154",
-      "@amaui/utils": "^1.1.17",
+      "@onesy/date": "^1.1.3",
+      "@onesy/huffman-code": "^1.0.11154",
+      "@onesy/lz77": "^1.0.11154",
+      "@onesy/utils": "^1.1.17",
       "@babel/runtime": "^7.18.3"
     },
     "devDependencies": {
-      "@amaui/models": "^1.0.1",
-      "@amaui/test": "^1.0.1141",
+      "@onesy/models": "^1.0.1",
+      "@onesy/test": "^1.0.1141",
       "@babel/cli": "^7.16.0",
       "@babel/core": "^7.16.0",
       "@babel/plugin-proposal-class-properties": "^7.17.12",
@@ -135,162 +135,162 @@ Lockfile:
   # yarn lockfile v1
   
   
-  "@amaui/cookie@^1.0.1111":
+  "@onesy/cookie@^1.0.1111":
     version "1.0.11111"
-    resolved "https://registry.yarnpkg.com/@amaui/cookie/-/cookie-1.0.11111.tgz#67a085192c30ddd6d7cf8961dd8bd57871214138"
+    resolved "https://registry.yarnpkg.com/@onesy/cookie/-/cookie-1.0.11111.tgz#67a085192c30ddd6d7cf8961dd8bd57871214138"
     integrity sha512-hOESfZD3K65HyMp+PRZMg6Cz+9JKVJQnmjCw2nDYmemUBI964fLD7OpEJFYpsS5Z6zWRgzC+j5KdlmsgZNJ8og==
     dependencies:
-      "@amaui/date" "^1.0.11111"
-      "@amaui/utils" "^1.0.11111"
+      "@onesy/date" "^1.0.11111"
+      "@onesy/utils" "^1.0.11111"
       "@babel/runtime" "^7.18.3"
   
-  "@amaui/date@^1.0.1111":
+  "@onesy/date@^1.0.1111":
     version "1.0.1111"
-    resolved "https://registry.yarnpkg.com/@amaui/date/-/date-1.0.1111.tgz#ebaa910df86840daba8b0ece7227d3f5b100e92a"
+    resolved "https://registry.yarnpkg.com/@onesy/date/-/date-1.0.1111.tgz#ebaa910df86840daba8b0ece7227d3f5b100e92a"
     integrity sha512-bRIGShwQx6/OoeBkAUQyTJH1090U/MdiLnNX0dZVYYguJxOAWcAALkNgDQ2RqAoI5w4fnvMutzuly1XUHtYZhQ==
     dependencies:
-      "@amaui/utils" "^1.0.1874"
+      "@onesy/utils" "^1.0.1874"
       "@babel/runtime" "^7.18.3"
   
-  "@amaui/date@^1.0.11111":
+  "@onesy/date@^1.0.11111":
     version "1.0.11111"
-    resolved "https://registry.yarnpkg.com/@amaui/date/-/date-1.0.11111.tgz#bee12b4a338d6e7321510a0482ac39075f774c40"
+    resolved "https://registry.yarnpkg.com/@onesy/date/-/date-1.0.11111.tgz#bee12b4a338d6e7321510a0482ac39075f774c40"
     integrity sha512-aVktpkUx1kn+aYQ4T6Ga99zUPnaNohGW0tcOU0bGWd72YBjvLOiLRGQYr4BpajS99fSNSmBrp0Vu3DZNNmNgyw==
     dependencies:
-      "@amaui/utils" "^1.0.11111"
+      "@onesy/utils" "^1.0.11111"
       "@babel/runtime" "^7.18.3"
   
-  "@amaui/date@^1.0.11433":
+  "@onesy/date@^1.0.11433":
     version "1.0.11433"
-    resolved "https://registry.yarnpkg.com/@amaui/date/-/date-1.0.11433.tgz#e9b5ad8e44bff9fbef47363a5e6e81fba3f6f5f7"
+    resolved "https://registry.yarnpkg.com/@onesy/date/-/date-1.0.11433.tgz#e9b5ad8e44bff9fbef47363a5e6e81fba3f6f5f7"
     integrity sha512-1e9ptGJGxaEa8+aNyi+oUNCS0j9v4Y4mUSYM3F/LmH6UE22FHwwLFeCNz49nlClgJfLYnBTgzPr8amyOJVvxtw==
     dependencies:
-      "@amaui/utils" "^1.0.11411"
+      "@onesy/utils" "^1.0.11411"
       "@babel/runtime" "^7.18.3"
   
-  "@amaui/date@^1.1.3":
+  "@onesy/date@^1.1.3":
     version "1.1.3"
-    resolved "https://registry.yarnpkg.com/@amaui/date/-/date-1.1.3.tgz#38a3b4c9ba725253636775d16408edf43b02cdce"
+    resolved "https://registry.yarnpkg.com/@onesy/date/-/date-1.1.3.tgz#38a3b4c9ba725253636775d16408edf43b02cdce"
     integrity sha512-i/D1L629UTGiqS7RSPI0PZLTIYqrEIzBnU8OzT9sim6mNhBOaPcVSjL9zRP/jfTQz6Pkw16jaN0DXzZsJ/qkEA==
     dependencies:
-      "@amaui/utils" "^1.0.11447"
+      "@onesy/utils" "^1.0.11447"
       "@babel/runtime" "^7.18.3"
   
-  "@amaui/diff@^1.0.1111":
+  "@onesy/diff@^1.0.1111":
     version "1.0.11111"
-    resolved "https://registry.yarnpkg.com/@amaui/diff/-/diff-1.0.11111.tgz#d53d5dc9b4caa7078fc98a5b79359e9d7188dd11"
+    resolved "https://registry.yarnpkg.com/@onesy/diff/-/diff-1.0.11111.tgz#d53d5dc9b4caa7078fc98a5b79359e9d7188dd11"
     integrity sha512-zkMWNs/NMCPlJW3kz7eFW71HmZbqfKJVoZCvBmgnYvOR+AFyJj2X3xaUeFCKZMYp2bREPxqiX4IHd1kkBX1W8g==
     dependencies:
-      "@amaui/utils" "^1.0.1874"
+      "@onesy/utils" "^1.0.1874"
       "@babel/runtime" "^7.18.3"
   
-  "@amaui/errors@^1.0.0":
+  "@onesy/errors@^1.0.0":
     version "1.0.0"
-    resolved "https://registry.yarnpkg.com/@amaui/errors/-/errors-1.0.0.tgz#fa8e01a4b460d10f3bc48ccbf07526e6456de5a4"
+    resolved "https://registry.yarnpkg.com/@onesy/errors/-/errors-1.0.0.tgz#fa8e01a4b460d10f3bc48ccbf07526e6456de5a4"
     integrity sha512-LKZkUxNdfv8AN91ScFIdidJ98aD55wD103kizK4sLUB1ZEzwpT9u8VGeCixiJS/vhPtagIei9Psu+HywswzdWA==
     dependencies:
       "@babel/runtime" "^7.16.3"
   
-  "@amaui/errors@^1.0.111":
+  "@onesy/errors@^1.0.111":
     version "1.0.111"
-    resolved "https://registry.yarnpkg.com/@amaui/errors/-/errors-1.0.111.tgz#c5b06d4d4e9a29f9640a4939b3b6c92c2b6d22cf"
+    resolved "https://registry.yarnpkg.com/@onesy/errors/-/errors-1.0.111.tgz#c5b06d4d4e9a29f9640a4939b3b6c92c2b6d22cf"
     integrity sha512-BDg5f3S/BVAfRp4a4XFj/JgeIZPUjYzc7a3im2rtgzWl05LIz2ZzgIVIJWEr+Vj2/vRQgvIiL/3fbC7RKFki1A==
     dependencies:
       "@babel/runtime" "^7.18.3"
   
-  "@amaui/huffman-code@^1.0.1111":
+  "@onesy/huffman-code@^1.0.1111":
     version "1.0.1111"
-    resolved "https://registry.yarnpkg.com/@amaui/huffman-code/-/huffman-code-1.0.1111.tgz#8890d17110b82457fa4c7fd3d460c99559666c4d"
+    resolved "https://registry.yarnpkg.com/@onesy/huffman-code/-/huffman-code-1.0.1111.tgz#8890d17110b82457fa4c7fd3d460c99559666c4d"
     integrity sha512-yWutJeVxm6eUBkLTU3tQH+ctt4k/PyZLhyB3wExNunUMBRozzhBwQgQDqsFbY2qVhDkhauwhWlrKp63vDpVgnQ==
     dependencies:
-      "@amaui/date" "^1.0.1111"
-      "@amaui/utils" "^1.0.1874"
+      "@onesy/date" "^1.0.1111"
+      "@onesy/utils" "^1.0.1874"
       "@babel/runtime" "^7.18.3"
   
-  "@amaui/huffman-code@^1.0.11154":
+  "@onesy/huffman-code@^1.0.11154":
     version "1.0.11154"
-    resolved "https://registry.yarnpkg.com/@amaui/huffman-code/-/huffman-code-1.0.11154.tgz#710a2a680275fb23f0047a4d37cc60e614049604"
+    resolved "https://registry.yarnpkg.com/@onesy/huffman-code/-/huffman-code-1.0.11154.tgz#710a2a680275fb23f0047a4d37cc60e614049604"
     integrity sha512-s1h8F6jLG1b75sSM8YxeQ1m7wRB2+XReQxf/KA/YOayFBZhBsL2n4Q00t6LvRQikPmFiYAR/8pXw+PlV3/QD1A==
     dependencies:
-      "@amaui/date" "^1.0.11433"
-      "@amaui/utils" "^1.0.11445"
+      "@onesy/date" "^1.0.11433"
+      "@onesy/utils" "^1.0.11445"
       "@babel/runtime" "^7.18.3"
   
-  "@amaui/log@^1.0.1111":
+  "@onesy/log@^1.0.1111":
     version "1.0.11111"
-    resolved "https://registry.yarnpkg.com/@amaui/log/-/log-1.0.11111.tgz#872debbe6d7c833a9ee3abb0c75357e77aeca85b"
+    resolved "https://registry.yarnpkg.com/@onesy/log/-/log-1.0.11111.tgz#872debbe6d7c833a9ee3abb0c75357e77aeca85b"
     integrity sha512-ZXOrUSr4XRbnIGU5Zl32LIu/gqC0XqIaLLsykPejdxEYpa4Gkt+vBT4lSrCm8agu5YEwbwm+PTWL4uDsUyE3zg==
     dependencies:
-      "@amaui/date" "^1.0.11111"
-      "@amaui/subscription" "^1.0.1114"
-      "@amaui/utils" "^1.0.11111"
+      "@onesy/date" "^1.0.11111"
+      "@onesy/subscription" "^1.0.1114"
+      "@onesy/utils" "^1.0.11111"
       "@babel/runtime" "^7.18.3"
   
-  "@amaui/lz77@^1.0.1111":
+  "@onesy/lz77@^1.0.1111":
     version "1.0.1111"
-    resolved "https://registry.yarnpkg.com/@amaui/lz77/-/lz77-1.0.1111.tgz#7c1ceb9bca952eb93bacfb871352f421f669885e"
+    resolved "https://registry.yarnpkg.com/@onesy/lz77/-/lz77-1.0.1111.tgz#7c1ceb9bca952eb93bacfb871352f421f669885e"
     integrity sha512-DviAmRF7edJ8BU/i/tpIYKOdMMoBWTrFzPHnwM1WjmPCIq1n+CDuSxOV01jq73mXumNwI3exthU8hrlvLUlQxg==
     dependencies:
-      "@amaui/date" "^1.0.1111"
-      "@amaui/utils" "^1.0.1874"
+      "@onesy/date" "^1.0.1111"
+      "@onesy/utils" "^1.0.1874"
       "@babel/runtime" "^7.18.3"
   
-  "@amaui/lz77@^1.0.11154":
+  "@onesy/lz77@^1.0.11154":
     version "1.0.11154"
-    resolved "https://registry.yarnpkg.com/@amaui/lz77/-/lz77-1.0.11154.tgz#d876a083ca1fb0a655250c6a5cbb9105047550de"
+    resolved "https://registry.yarnpkg.com/@onesy/lz77/-/lz77-1.0.11154.tgz#d876a083ca1fb0a655250c6a5cbb9105047550de"
     integrity sha512-t2VCRVwhO4yU61VAobaeQuagoKB4g1QFEmbCq7THMX4n4ECR/ScQ7AnnxuJl+jjbxbhhwITzIzN5pdm45W7WbA==
     dependencies:
-      "@amaui/date" "^1.0.11433"
-      "@amaui/utils" "^1.0.11445"
+      "@onesy/date" "^1.0.11433"
+      "@onesy/utils" "^1.0.11445"
       "@babel/runtime" "^7.18.3"
   
-  "@amaui/models@^1.0.1":
+  "@onesy/models@^1.0.1":
     version "1.0.1"
-    resolved "https://registry.yarnpkg.com/@amaui/models/-/models-1.0.1.tgz#4ea585df831d56a4771b5d9720687958eb279b80"
+    resolved "https://registry.yarnpkg.com/@onesy/models/-/models-1.0.1.tgz#4ea585df831d56a4771b5d9720687958eb279b80"
     integrity sha512-V8Ao8ONmgWZn3mwj954o7ujBZVVs3GSgVSxZDCrPbbX+0wkX6UCWhvsuLPwwRRx/djzbhYI4tA81cZR0ODyoGw==
     dependencies:
-      "@amaui/errors" "^1.0.0"
-      "@amaui/utils" "^1.0.113"
+      "@onesy/errors" "^1.0.0"
+      "@onesy/utils" "^1.0.113"
       "@babel/runtime" "^7.16.3"
   
-  "@amaui/request@^1.0.1111":
+  "@onesy/request@^1.0.1111":
     version "1.0.1111"
-    resolved "https://registry.yarnpkg.com/@amaui/request/-/request-1.0.1111.tgz#93403ad777a70d1b0969afffd0c74bfef8fe57fe"
+    resolved "https://registry.yarnpkg.com/@onesy/request/-/request-1.0.1111.tgz#93403ad777a70d1b0969afffd0c74bfef8fe57fe"
     integrity sha512-PrBTosnSD9xUgQCT+r9UF+Iob4t9BTp1GUTW+r2ltO7OW3v0NzcOkNnyRZVcJ/3xH3GOJNd2eyc9XDXGroHL+Q==
     dependencies:
-      "@amaui/cookie" "^1.0.1111"
-      "@amaui/subscription" "^1.0.1111"
-      "@amaui/utils" "^1.0.1874"
-      "@amaui/zip" "^1.0.1117"
+      "@onesy/cookie" "^1.0.1111"
+      "@onesy/subscription" "^1.0.1111"
+      "@onesy/utils" "^1.0.1874"
+      "@onesy/zip" "^1.0.1117"
       "@babel/runtime" "^7.18.3"
   
-  "@amaui/subscription@^1.0.1111", "@amaui/subscription@^1.0.1114":
+  "@onesy/subscription@^1.0.1111", "@onesy/subscription@^1.0.1114":
     version "1.0.1114"
-    resolved "https://registry.yarnpkg.com/@amaui/subscription/-/subscription-1.0.1114.tgz#029a812e4a851ea96accff453d1fe98d0233b9dd"
+    resolved "https://registry.yarnpkg.com/@onesy/subscription/-/subscription-1.0.1114.tgz#029a812e4a851ea96accff453d1fe98d0233b9dd"
     integrity sha512-zEOPYNB47q2JvfnrO4OtJqW+wc2f/gRjvTF4/UkNp9vjj1+NcvK7G8+aQcKSu7FTuMDD065VfxcADQDgZbCjdg==
     dependencies:
-      "@amaui/utils" "^1.0.11111"
+      "@onesy/utils" "^1.0.11111"
       "@babel/runtime" "^7.18.3"
   
-  "@amaui/test@^1.0.1141":
+  "@onesy/test@^1.0.1141":
     version "1.0.1141"
-    resolved "https://registry.yarnpkg.com/@amaui/test/-/test-1.0.1141.tgz#1df8f0694df7aafebdaeb76e75199d83415593a1"
+    resolved "https://registry.yarnpkg.com/@onesy/test/-/test-1.0.1141.tgz#1df8f0694df7aafebdaeb76e75199d83415593a1"
     integrity sha512-j4GmLJtYlhIMlXYNdr4o/qQweFGyoIiwLuZTwpxVqHWtVYkFG6CzYNsjBdXtsLxNIveRGkOJG13Hd2wLUfAQcg==
     dependencies:
-      "@amaui/date" "^1.0.1111"
-      "@amaui/diff" "^1.0.1111"
-      "@amaui/errors" "^1.0.111"
-      "@amaui/log" "^1.0.1111"
-      "@amaui/request" "^1.0.1111"
-      "@amaui/subscription" "^1.0.1111"
-      "@amaui/utils" "^1.0.1874"
+      "@onesy/date" "^1.0.1111"
+      "@onesy/diff" "^1.0.1111"
+      "@onesy/errors" "^1.0.111"
+      "@onesy/log" "^1.0.1111"
+      "@onesy/request" "^1.0.1111"
+      "@onesy/subscription" "^1.0.1111"
+      "@onesy/utils" "^1.0.1874"
       "@babel/runtime" "^7.18.3"
       fast-glob "^3.2.11"
       yargs "^17.5.1"
   
-  "@amaui/utils@^1.0.11111":
+  "@onesy/utils@^1.0.11111":
     version "1.0.11111"
-    resolved "https://registry.yarnpkg.com/@amaui/utils/-/utils-1.0.11111.tgz#dbecc4629ca5c6fe2699c0f42072a1f7c28d317e"
+    resolved "https://registry.yarnpkg.com/@onesy/utils/-/utils-1.0.11111.tgz#dbecc4629ca5c6fe2699c0f42072a1f7c28d317e"
     integrity sha512-5vB4/sGTv/tLG8ihNHShtXQtS47cqZgkU0EZS08ckARTEche/ZoxBW7OvncfAcI40925fn7M5KKRNubYBBU9QA==
     dependencies:
       "@babel/runtime" "^7.18.3"
@@ -298,9 +298,9 @@ Lockfile:
       path-to-regexp "^6.2.0"
       uuid "^8.3.2"
   
-  "@amaui/utils@^1.0.113":
+  "@onesy/utils@^1.0.113":
     version "1.0.127"
-    resolved "https://registry.yarnpkg.com/@amaui/utils/-/utils-1.0.127.tgz#46fa6a575725a904948beb3fc4bfca1a26e952c6"
+    resolved "https://registry.yarnpkg.com/@onesy/utils/-/utils-1.0.127.tgz#46fa6a575725a904948beb3fc4bfca1a26e952c6"
     integrity sha512-LO/xEB3oGC6jQ2HTpG/9w11h865XNkFpUzfJasHtrKcBcNQzBYJKfObebL5JUb98V4/xftitdi2i315+gIBEzw==
     dependencies:
       "@babel/runtime" "^7.16.3"
@@ -308,9 +308,9 @@ Lockfile:
       path-to-regexp "^6.2.0"
       uuid "^8.3.2"
   
-  "@amaui/utils@^1.0.11411":
+  "@onesy/utils@^1.0.11411":
     version "1.0.11411"
-    resolved "https://registry.yarnpkg.com/@amaui/utils/-/utils-1.0.11411.tgz#6ea9d62aa2b4570db34c3028a9c2242c71feb49d"
+    resolved "https://registry.yarnpkg.com/@onesy/utils/-/utils-1.0.11411.tgz#6ea9d62aa2b4570db34c3028a9c2242c71feb49d"
     integrity sha512-a0IIjJIKwqE4yggUjImRlLlDZ9RHQdNYcrjW6JYMWSDD3IV6AvgQEBRitCWogErXgTP4w1quN9LhENN48aTwaQ==
     dependencies:
       "@babel/runtime" "^7.18.3"
@@ -318,9 +318,9 @@ Lockfile:
       path-to-regexp "^6.2.0"
       uuid "^8.3.2"
   
-  "@amaui/utils@^1.0.11445":
+  "@onesy/utils@^1.0.11445":
     version "1.0.11445"
-    resolved "https://registry.yarnpkg.com/@amaui/utils/-/utils-1.0.11445.tgz#f824cdb4c84885a06d9d17a308b9b6f67d2a5308"
+    resolved "https://registry.yarnpkg.com/@onesy/utils/-/utils-1.0.11445.tgz#f824cdb4c84885a06d9d17a308b9b6f67d2a5308"
     integrity sha512-okORtkmCSLSZZk6sVGMgDpo+83QLkbe0Nu9S0AuhTbwDuca3VUd7M3HS2rRLF0Lq7O06qMKc9+1synQnHu8dLw==
     dependencies:
       "@babel/runtime" "^7.18.3"
@@ -328,9 +328,9 @@ Lockfile:
       path-to-regexp "^6.2.0"
       uuid "^8.3.2"
   
-  "@amaui/utils@^1.0.11447", "@amaui/utils@^1.1.17":
+  "@onesy/utils@^1.0.11447", "@onesy/utils@^1.1.17":
     version "1.1.17"
-    resolved "https://registry.yarnpkg.com/@amaui/utils/-/utils-1.1.17.tgz#0505f371ed33d5df8ea0f13122a5289f069b6302"
+    resolved "https://registry.yarnpkg.com/@onesy/utils/-/utils-1.1.17.tgz#0505f371ed33d5df8ea0f13122a5289f069b6302"
     integrity sha512-GsOc6hWKHX+6fbVD9LIOFhq123Qtdui0le1nn9tWsKNZjqewA4vwH8xeH2NPGrK/dhpy1/Imv8d3VKql930BOw==
     dependencies:
       "@babel/runtime" "^7.18.3"
@@ -338,9 +338,9 @@ Lockfile:
       path-to-regexp "^6.2.0"
       uuid "^8.3.2"
   
-  "@amaui/utils@^1.0.1874":
+  "@onesy/utils@^1.0.1874":
     version "1.0.1874"
-    resolved "https://registry.yarnpkg.com/@amaui/utils/-/utils-1.0.1874.tgz#41fe174b0c7a66c2fcae3eb7742ee830a3864a85"
+    resolved "https://registry.yarnpkg.com/@onesy/utils/-/utils-1.0.1874.tgz#41fe174b0c7a66c2fcae3eb7742ee830a3864a85"
     integrity sha512-pVJlw8P2oQDZHgYWFTOPwo80/1x89aRIitq2YMiQFL9/f/KHY+QtN44bOKHc5x8qdo7eIwB2HK6w4/eBmmkGcQ==
     dependencies:
       "@babel/runtime" "^7.18.3"
@@ -348,15 +348,15 @@ Lockfile:
       path-to-regexp "^6.2.1"
       uuid "^8.3.2"
   
-  "@amaui/zip@^1.0.1117":
+  "@onesy/zip@^1.0.1117":
     version "1.0.1117"
-    resolved "https://registry.yarnpkg.com/@amaui/zip/-/zip-1.0.1117.tgz#d7090e2062af073aab416f7fe915225d822e37e0"
+    resolved "https://registry.yarnpkg.com/@onesy/zip/-/zip-1.0.1117.tgz#d7090e2062af073aab416f7fe915225d822e37e0"
     integrity sha512-aYgPsg1wlQieofSAKKkBLT1PPYzDqRtTbrIORGE7vPEwKLpjM3d0ao+6zSLYEbAo4JX0xyJig2Yn1p4fHfjyTw==
     dependencies:
-      "@amaui/date" "^1.0.1111"
-      "@amaui/huffman-code" "^1.0.1111"
-      "@amaui/lz77" "^1.0.1111"
-      "@amaui/utils" "^1.0.1874"
+      "@onesy/date" "^1.0.1111"
+      "@onesy/huffman-code" "^1.0.1111"
+      "@onesy/lz77" "^1.0.1111"
+      "@onesy/utils" "^1.0.1874"
       "@babel/runtime" "^7.18.3"
   
   "@ampproject/remapping@^2.1.0":

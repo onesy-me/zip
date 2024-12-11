@@ -1,14 +1,14 @@
 /* tslint:disable: no-shadowed-variable */
-import { assert } from '@amaui/test';
+import { assert } from '@onesy/test';
 
 import { evaluate } from '../utils/js/test/utils';
 
-import AmauiZip from '../src';
+import OnesyZip from '../src';
 
-group('AmauiZip', () => {
+group('OnesyZip', () => {
 
-  to('AmauiZipResponse', async () => {
-    const value = new AmauiZip.AmauiZipResponse(
+  to('OnesyZipResponse', async () => {
+    const value = new OnesyZip.OnesyZipResponse(
       'a',
       14,
       4,
@@ -20,7 +20,7 @@ group('AmauiZip', () => {
     );
 
     const valueBrowsers = await evaluate((window: any) => {
-      const value = new window.AmauiZip.AmauiZipResponse(
+      const value = new window.OnesyZip.OnesyZipResponse(
         'a',
         14,
         4,
@@ -48,9 +48,9 @@ group('AmauiZip', () => {
     }));
   });
 
-  group('AmauiZip', () => {
+  group('OnesyZip', () => {
 
-    group('AmauiZip', () => {
+    group('OnesyZip', () => {
 
       to('encode, decode', async () => {
         const valueBrowsers = await evaluate((window: any) => {
@@ -73,7 +73,7 @@ group('AmauiZip', () => {
             new Uint8Array([97, 97, 97])
           ];
 
-          const result = values.map(item => window.AmauiZip.decode(new window.AmauiZip(item).response?.value).value);
+          const result = values.map(item => window.OnesyZip.decode(new window.OnesyZip(item).response?.value).value);
 
           result[result.length - 1] = [result[result.length - 1] instanceof Uint8Array, Array.from(result[result.length - 1])];
 
@@ -99,7 +99,7 @@ group('AmauiZip', () => {
           new Uint8Array([97, 97, 97])
         ];
 
-        const result = values_.map(item => AmauiZip.decode(new AmauiZip(item).response?.value).value);
+        const result = values_.map(item => OnesyZip.decode(new OnesyZip(item).response?.value).value);
 
         result[result.length - 1] = [result[result.length - 1] instanceof Uint8Array, Array.from(result[result.length - 1])];
 
@@ -136,13 +136,13 @@ group('AmauiZip', () => {
     to(`Text that ends up having padded 0's in binary form, and was incorrectly decoded, missing a character`, async () => {
       const valueBrowsers = await evaluate((window: any) => {
         const values_ = [
-          window.AmauiZip.decode(new window.AmauiZip(`asdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdad`).response.value).value
+          window.OnesyZip.decode(new window.OnesyZip(`asdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdad`).response.value).value
         ];
 
         return values_;
       });
       const values_ = [
-        AmauiZip.decode(new AmauiZip(`asdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdad`).response.value).value
+        OnesyZip.decode(new OnesyZip(`asdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdadasdad`).response.value).value
       ];
 
       const valueNode = values_;
@@ -156,13 +156,13 @@ group('AmauiZip', () => {
     to('Japanese characters, UTF-16', async () => {
       const valueBrowsers = await evaluate((window: any) => {
         const values_ = [
-          window.AmauiZip.decode(new window.AmauiZip({ "id": "a", "name": "アマウイ大好き" }).response.value).value
+          window.OnesyZip.decode(new window.OnesyZip({ "id": "a", "name": "アマウイ大好き" }).response.value).value
         ];
 
         return values_;
       });
       const values_ = [
-        AmauiZip.decode(new AmauiZip({ "id": "a", "name": "アマウイ大好き" }).response.value).value
+        OnesyZip.decode(new OnesyZip({ "id": "a", "name": "アマウイ大好き" }).response.value).value
       ];
 
       const valueNode = values_;

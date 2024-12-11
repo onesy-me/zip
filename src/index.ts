@@ -1,1 +1,1 @@
-export { default } from './AmauiZip';
+export { default } from './OnesyZip';

@@ -1,14 +1,14 @@
-import is from '@amaui/utils/is';
-import to from '@amaui/utils/to';
-import parse from '@amaui/utils/parse';
-import serialize from '@amaui/utils/serialize';
-import AmauiDate from '@amaui/date/AmauiDate';
-import duration from '@amaui/date/duration';
-import AmauiHuffmanCode from '@amaui/huffman-code';
-import AmauiLZ77 from '@amaui/lz77';
-import merge from '@amaui/utils/merge';
+import is from '@onesy/utils/is';
+import to from '@onesy/utils/to';
+import parse from '@onesy/utils/parse';
+import serialize from '@onesy/utils/serialize';
+import OnesyDate from '@onesy/date/OnesyDate';
+import duration from '@onesy/date/duration';
+import OnesyHuffmanCode from '@onesy/huffman-code';
+import OnesyLZ77 from '@onesy/lz77';
+import merge from '@onesy/utils/merge';
 
-class AmauiZipResponse {
+class OnesyZipResponse {
 
   public constructor(
     public value?: any,
@@ -33,18 +33,18 @@ const optionsDefault: IOptions = {
   huffman_code: 'auto'
 };
 
-class AmauiZip {
+class OnesyZip {
   public options: IOptions = {};
   public serialized = false;
-  public response: AmauiZipResponse;
+  public response: OnesyZipResponse;
 
-  public static get AmauiZipResponse() { return AmauiZipResponse; }
+  public static get OnesyZipResponse() { return OnesyZipResponse; }
 
   public static decode(value: string) {
-    return new AmauiZip().decode(value);
+    return new OnesyZip().decode(value);
   }
 
-  public get encoded(): AmauiZipResponse {
+  public get encoded(): OnesyZipResponse {
     return this.response;
   }
 
@@ -68,17 +68,17 @@ class AmauiZip {
     this.encode();
   }
 
-  public encode(): AmauiZipResponse {
-    const startTime = AmauiDate.milliseconds;
+  public encode(): OnesyZipResponse {
+    const startTime = OnesyDate.milliseconds;
 
-    const lz77 = new AmauiLZ77(this.value);
+    const lz77 = new OnesyLZ77(this.value);
 
     let value = lz77.response.value;
 
     const options = [this.serialized ? 1 : 0];
 
     if (['auto', true].includes(this.options.huffman_code)) {
-      const huffmanCode = new AmauiHuffmanCode(lz77.response.value, { encode_values: this.options?.encode_values });
+      const huffmanCode = new OnesyHuffmanCode(lz77.response.value, { encode_values: this.options?.encode_values });
 
       if (
         huffmanCode.response.positive ||
@@ -94,9 +94,9 @@ class AmauiZip {
 
     value = `${options.join('')}${value}`;
 
-    const response: AmauiZipResponse = new AmauiZipResponse(value);
+    const response: OnesyZipResponse = new OnesyZipResponse(value);
 
-    response.performance_milliseconds = AmauiDate.milliseconds - startTime;
+    response.performance_milliseconds = OnesyDate.milliseconds - startTime;
     response.performance = duration(response.performance_milliseconds) || '0 milliseconds';
     response.original_byte_size = to(this.value, 'byte-size') as number;
     response.value_byte_size = to(response.value, 'byte-size') as number;
@@ -109,10 +109,10 @@ class AmauiZip {
     return response;
   }
 
-  public decode(value_: string): AmauiZipResponse {
-    const response = new AmauiZipResponse();
+  public decode(value_: string): OnesyZipResponse {
+    const response = new OnesyZipResponse();
 
-    const startTime = AmauiDate.milliseconds;
+    const startTime = OnesyDate.milliseconds;
 
     if (is('string', value_)) {
       const huffmanCode = value_[0] === '1';
@@ -128,22 +128,22 @@ class AmauiZip {
         const huffmanValue = value.substring(separator + 4);
 
         if (huffmanValue && huffmanValues) {
-          huffmanValues = AmauiHuffmanCode.decodeValues(huffmanValues);
+          huffmanValues = OnesyHuffmanCode.decodeValues(huffmanValues);
 
-          const huffman = AmauiHuffmanCode.decode(huffmanValue, huffmanValues);
+          const huffman = OnesyHuffmanCode.decode(huffmanValue, huffmanValues);
 
           value = huffman.value;
         }
       }
 
       // lz77
-      const lz77 = AmauiLZ77.decode(value);
+      const lz77 = OnesyLZ77.decode(value);
 
       response.value = lz77.value;
 
       if (serialized) response.value = parse(response.value);
 
-      response.performance_milliseconds = AmauiDate.milliseconds - startTime;
+      response.performance_milliseconds = OnesyDate.milliseconds - startTime;
       response.performance = duration(response.performance_milliseconds) || '0 milliseconds';
       response.original_byte_size = to(response.value, 'byte-size') as number;
       response.value_byte_size = to(value_, 'byte-size') as number;
@@ -154,4 +154,4 @@ class AmauiZip {
 
 }
 
-export default AmauiZip;
+export default OnesyZip;
